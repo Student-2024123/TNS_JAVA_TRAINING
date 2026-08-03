@@ -7,7 +7,7 @@ public class printDetails {
 
         System.out.print("Enter Student Name: ");
         String name = scn.nextLine();
-
+        // Taking input for roll no
         System.out.print("Enter Student Roll No: ");
         int rollNo = scn.nextInt();
 
