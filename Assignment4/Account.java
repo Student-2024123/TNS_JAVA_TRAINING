@@ -9,16 +9,13 @@ public abstract class Account {
         this.accountHolder = accountHolder;
         this.balance = balance;
 
-        // Count every account created
         new Bank();
     }
 
-    // Concrete method
     public void displayDetails() {
         System.out.println("Account Holder : " + accountHolder);
     }
 
-    // Abstract methods
     public abstract void deposit(double amount);
 
     public abstract void withdraw(double amount);
