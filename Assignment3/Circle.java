@@ -14,6 +14,7 @@ public class Circle {
 
         System.out.print("Enter Color of circle: ");
         color = scn.next();
+        scn.close();
     }
 
     public double calArea() {
