@@ -21,6 +21,7 @@ public class printDetails {
         System.out.println(rollNo);
         System.out.println(grade);
         System.out.println(per);
+        scn.close();
 
     }
 

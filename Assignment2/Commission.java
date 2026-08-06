@@ -21,6 +21,7 @@ public class Commission {
 
         System.out.print("Enter Sales Amount: ");
         Sales_amount = sc.nextDouble();
+        sc.close();
     }
 
     public void calCommission() {
