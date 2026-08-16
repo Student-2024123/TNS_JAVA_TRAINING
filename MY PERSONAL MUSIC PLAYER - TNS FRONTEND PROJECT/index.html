@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sonix — Personal Music Player</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#home" aria-label="Sonix home"><span class="brand-mark" aria-hidden="true">♪</span><span>Sonix</span></a>
+      <nav aria-label="Music library">
+        <a class="nav-link active" href="#home" data-view="home"><span>⌂</span> Home</a>
+        <a class="nav-link" href="#songs" data-view="songs"><span>♫</span> All songs</a>
+        <a class="nav-link" href="#favorites" data-view="favorites"><span>♡</span> Favorites <em id="favoriteCount">0</em></a>
+        <a class="nav-link" href="#recent" data-view="recent"><span>◷</span> Recently played</a>
+      </nav>
+      <div class="sidebar-note"><span class="pulse"></span> YOUR PRIVATE LIBRARY<br><small id="visitCount">Local visits: 1</small></div>
+    </aside>
+
+    <section class="content" id="home">
+      <header class="topbar">
+        <div class="search-wrap">
+          <label class="sr-only" for="searchInput">Search songs</label>
+          <span aria-hidden="true">⌕</span><input id="searchInput" type="search" placeholder="Search songs, artists, albums…" autocomplete="off">
+          <button id="clearSearch" class="icon-button clear hidden" aria-label="Clear search">×</button>
+          <button id="voiceSearch" class="icon-button mic" aria-label="Search using voice" title="Search using voice">⌁</button>
+        </div>
+        <p class="search-status" id="searchStatus" role="status" aria-live="polite"></p>
+      </header>
+
+      <section class="hero" aria-labelledby="nowHeading">
+        <div class="hero-copy"><p class="eyebrow">NOW PLAYING</p><h1 id="nowHeading">A little music,<br><i>a lot of feeling.</i></h1><p class="intro">Your hand-picked sounds for every kind of day.</p><button id="heroPlay" class="primary-button"><span>▶</span> Play collection</button></div>
+        <div class="now-card" id="nowCard">
+          <img id="nowCover" src="assets/images/cover-1.svg" alt="Cover art for Hip Hop 02">
+          <div class="disc-shadow"></div><div class="now-meta"><p id="nowTitle">Hip Hop 02</p><span id="nowArtist">Lily J</span><button id="nowFavorite" class="heart-button" aria-label="Add Hip Hop 02 to favorites">♡</button></div>
+        </div>
+      </section>
+
+      <section class="library-section" id="songs">
+        <div class="section-heading"><div><p class="eyebrow">YOUR LIBRARY</p><h2 id="listTitle">All songs</h2></div><span id="songCount"></span></div>
+        <div class="track-list" id="trackList" aria-live="polite"></div>
+      </section>
+      <section class="library-section hidden-section" id="favorites"><div class="section-heading"><div><p class="eyebrow">SAVED FOR LATER</p><h2>Favorites</h2></div></div><div class="mini-grid" id="favoritesList"></div></section>
+      <section class="library-section hidden-section" id="recent"><div class="section-heading"><div><p class="eyebrow">A MOMENT AGO</p><h2>Recently played</h2></div></div><div class="mini-grid" id="recentList"></div></section>
+    </section>
+  </main>
+
+  <footer class="player" aria-label="Music player controls">
+    <div class="player-track"><img id="playerCover" src="assets/images/cover-1.svg" alt=""><div><strong id="playerTitle">Hip Hop 02</strong><span id="playerArtist">Lily J</span></div><button id="playerFavorite" class="heart-button" aria-label="Favorite current song">♡</button></div>
+    <div class="player-main"><div class="controls"><button id="shuffleBtn" class="control-button" aria-label="Shuffle" title="Shuffle">⤨</button><button id="previousBtn" class="control-button" aria-label="Previous track">|◀</button><button id="playBtn" class="play-button" aria-label="Play">▶</button><button id="nextBtn" class="control-button" aria-label="Next track">▶|</button><button id="repeatBtn" class="control-button" aria-label="Repeat off" title="Repeat off">↻</button></div><div class="progress-row"><time id="currentTime">0:00</time><input id="progressBar" type="range" min="0" max="100" value="0" step="0.1" aria-label="Song progress"><time id="duration">0:00</time></div></div>
+    <div class="volume"><button id="muteBtn" class="control-button" aria-label="Mute">◖</button><label class="sr-only" for="volumeBar">Volume</label><input id="volumeBar" type="range" min="0" max="1" value="0.75" step="0.01" aria-label="Volume"></div>
+  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="songs.js"></script><script src="storage.js"></script><script src="player.js"></script><script src="app.js"></script>
+</body>
+</html>
